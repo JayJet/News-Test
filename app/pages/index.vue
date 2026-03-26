@@ -6,11 +6,7 @@
 
 <script setup>
 
-    import { onMounted } from 'vue';
-
-    onMounted(() => {
-
-    });
+await navigateTo('/1/?source=all');
 
 </script>
 
