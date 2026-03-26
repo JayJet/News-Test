@@ -1,0 +1,161 @@
+:root {
+    --active-color: #0029ff;
+    --inactive-color: #c4c4c4;
+    --background-color: #fbfbfb;
+    --shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    --shadow-active: -2px -2px 4px rgba(0, 0, 0, 0.2);
+    --font-weight-value: 600;
+    --font-family: Arial;
+}
+
+html {
+  font-family: var(--font-family);
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+.circle-button {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow);
+    flex-shrink: 0;
+}
+
+.circle-button:active {
+    box-shadow: var(--shadow-active);
+}
+
+.button {
+    user-select: none;
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-head {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.spacer {
+    flex-grow: 1;
+}
+
+.input {
+    box-shadow: var(--shadow);
+    height: 40px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    padding: 0 10px;
+}
+
+.input input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+}
+
+.hr {
+    width: 100%;
+    height: 1px;
+    background-color: #e5e5e5;
+    margin-bottom: 16px;
+}
+
+.tabs-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.tab {
+    font-weight: 600;
+    color: var(--active-color);
+}
+
+.tab-active {
+    color: black;
+}
+
+.panel {
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 480px) {
+
+    .header {
+        flex-direction: column;
+        gap: 0px;
+    }
+    .header-head {
+        width: 100%;
+    }
+    .input {
+        width: calc(100% - 20px);
+        margin: 0 10px;
+    }
+    .hr {
+        margin-top: 10px;
+    }
+    .container {
+        padding: 0 10px;
+    }
+    
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+    .header {
+        flex-direction: column;
+        gap: 0px;
+    }
+    .header-head {
+        width: 100%;
+    }
+    .input {
+        width: calc(100% - 20px);
+        margin: 0 10px;
+    }
+    .hr {
+        margin-top: 10px;
+    }
+    .container {
+        padding: 0 10px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {        
+        width: 1200px;
+    }
+}
