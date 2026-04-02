@@ -8,29 +8,8 @@
 
 <script setup>
 
-    import { onMounted, watch } from 'vue';
-
-    import { useNewsStore } from '~/store/news';
-    const newsStore = useNewsStore();
-    import { VisualMode } from '~/types/enums';
-    import GridCell from './cell/gridCell.vue'
-    import RowCell from './cell/rowCell.vue'
-
-    const newsComponent = computed(() => {
-        return newsStore.mode == VisualMode.ROWS ? RowCell : GridCell;
-    });
-
-    const news = computed(() => {
-        return newsStore.currentPageFilteredNews;
-    });
-
-    const newsContainerClass = computed(() => {
-        return newsStore.mode == VisualMode.ROWS ? 'news-container-column' : 'news-container-grid';
-    });
-
-    onMounted(() => {
-        
-    });
+    import { useNewsList } from '~/composables/useNewsList';
+    const { newsComponent, newsContainerClass, news } = useNewsList();
 
 </script>
 

@@ -8,9 +8,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      MOSRU_URL: process.env.NUXT_PUBLIC_MOSRU_URL,
-      LENTARU_URL: process.env.NUXT_PUBLIC_LENTARU_URL,
-      SOURCES: process.env.NUXT_PUBLIC_SOURCES,
+      
     }
   }
 })

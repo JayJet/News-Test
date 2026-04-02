@@ -10,7 +10,7 @@
         </div>
         <div class="spacer"/>
         <div class="input">
-            <input 
+            <input
                 type="text" 
                 placeholder="Поиск новостей..." 
                 v-model="searchQuery"
@@ -23,35 +23,15 @@
 </template>
 
 <script setup lang="ts">
-    import { ref } from 'vue';
+
     import RefreshIcon from '~/assets/refresh.vue'
     import SearchIcon from '~/assets/search.vue'
-    import { useNewsStore } from '~/store/news';
-    const newsStore = useNewsStore();
 
-    const searchQuery = ref(newsStore.query);
-    let searchTimeout: ReturnType<typeof setTimeout> | null = null;
-    
-    const handleSearchInput = () => {
-        if (searchTimeout) {
-            clearTimeout(searchTimeout);
-        }
-        
-        searchTimeout = setTimeout(() => {
-            newsStore.setQuery(searchQuery.value);
-        }, 500);
-    };
+    import { useHeader } from '~/composables/useHeader'
+    const { unmountHandler, handleSearchInput, handleRefresh, searchQuery } = useHeader();
 
-    const handleRefresh = () => {
-        newsStore.reset();
-        searchQuery.value = '';
-    };
+    onUnmounted(unmountHandler);
 
-    onUnmounted(() => {
-        if (searchTimeout) {
-            clearTimeout(searchTimeout);
-        }
-    });
 </script>
 
 <style scoped>

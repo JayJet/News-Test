@@ -97,6 +97,10 @@ body {
     gap: 20px;
 }
 
+.tabs-source {
+    overflow-x: auto;
+}
+
 .tab {
     font-weight: 600;
     color: var(--active-color);
@@ -109,6 +113,7 @@ body {
 .panel {
     display: flex;
     flex-direction: row;
+    gap: 8px;
 }
 
 @media (max-width: 480px) {

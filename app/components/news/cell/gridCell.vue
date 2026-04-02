@@ -14,41 +14,14 @@
 
 <script setup lang="ts">
 
-import { onMounted } from 'vue';
+    import { useNewsCell } from '~/composables/useNewsCell';
     import type { INewsItem } from '~/types/news';
 
     const props = defineProps<{
         item: INewsItem
     }>();
 
-    interface Domain {
-        link: string;
-        title: string;
-    }
-
-    const domain = computed<Domain>(() => {
-        try {
-            const url = new URL(props.item.link);
-            const hostname = url.hostname;
-            return {
-                link: `https://${hostname}`,
-                title: hostname
-            };
-        } catch (error) {
-            return {
-                link: '/',
-                title: ''
-            };
-        }
-    });
-
-    const date = computed<string>(() => {
-        return new Date(props.item.pubDate).toLocaleDateString('ru');
-    });
-
-    onMounted(() => {
-
-    });
+    const { date, domain } = useNewsCell(props);
 
 </script>
 

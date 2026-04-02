@@ -1,12 +1,12 @@
 <template>
     <div>
-        
+        index
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 
-await navigateTo('/1/?source=all');
+    await navigateTo('/1/?source=all');
 
 </script>
 
